@@ -7,72 +7,116 @@
     <!-- Tailwind CSS CDN -->
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Fraunces:wght@600;700&display=swap" rel="stylesheet">
+    <style>
+        body { font-family: 'Inter', sans-serif; background-color: #FAF6F0; color: #211B16; }
+        h1, h2, h3 { font-family: 'Fraunces', serif; }
+        .fun-card { transition: all 0.25s ease; }
+        .fun-card:hover { transform: translateY(-4px); box-shadow: 0 12px 25px -10px rgba(128, 0, 32, 0.15); }
+    </style>
 </head>
-<body class="bg-slate-950 text-slate-100 font-sans leading-relaxed">
+<body class="selection:bg-rose-500 selection:text-white">
 
     <!-- Header / Navbar -->
-    <header class="sticky top-0 z-50 backdrop-blur-md bg-slate-900/80 border-b border-slate-800">
+    <header class="sticky top-0 z-50 backdrop-blur-md bg-[#FAF6F0]/90 border-b border-[#E8DFD1]">
         <div class="max-w-5xl mx-auto px-6 h-20 flex items-center justify-between">
-            <span class="font-extrabold text-xl text-rose-400">Lintang Utama</span>
-            <nav class="space-x-6 text-sm font-semibold">
-                <a href="#about" class="hover:text-rose-400 transition">About</a>
-                <a href="#achievements" class="hover:text-rose-400 transition">Achievements</a>
-                <a href="#projects" class="hover:text-rose-400 transition">Projects</a>
+            <span class="font-extrabold text-xl text-[#800020] tracking-tight">✨ Lintang Utama</span>
+            <nav class="space-x-6 text-sm font-bold text-[#5B4A40]">
+                <a href="#about" class="hover:text-[#800020] transition">About</a>
+                <a href="#achievements" class="hover:text-[#800020] transition">Achievements</a>
+                <a href="#cp" class="hover:text-[#800020] transition">CP Profiles</a>
+                <a href="#projects" class="hover:text-[#800020] transition">Projects</a>
             </nav>
         </div>
     </header>
 
     <!-- Hero Section -->
     <section class="max-w-5xl mx-auto px-6 py-20 flex flex-col items-start space-y-6">
-        <span class="px-4 py-1.5 rounded-full text-xs font-bold bg-rose-500/10 text-rose-400 border border-rose-500/20">
-            Grade 12 Student & Competitive Programmer
+        <span class="px-4 py-1.5 rounded-full text-xs font-bold bg-rose-500/15 text-rose-700 border border-rose-500/30 flex items-center gap-2">
+            <span>🚀</span> Grade 12 Student & Competitive Programmer
         </span>
-        <h1 class="text-4xl sm:text-6xl font-extrabold tracking-tight">
-            Hi, I'm <span class="text-rose-400">Leonardus Lintang</span>.
+        <h1 class="text-4xl sm:text-6xl font-extrabold tracking-tight text-[#211B16]">
+            Hi, I'm <span class="text-[#800020]">Leonardus Lintang</span>!
         </h1>
-        <p class="max-w-2xl text-slate-400 text-lg">
-            A high school student at Kesatuan Bangsa Bilingual Boarding School with a deep passion for computer science, informatics olympiads, and building interactive web applications.
+        <p class="max-w-2xl text-[#5B4A40] text-lg leading-relaxed">
+            A high school student at Kesatuan Bangsa Bilingual Boarding School with a deep passion for computer science, informatics olympiads, and building fun, interactive web experiences.
         </p>
         <div class="flex gap-4 pt-2">
-            <a href="#projects" class="px-6 py-3 bg-rose-600 hover:bg-rose-700 font-bold rounded-2xl shadow-lg transition">View Projects</a>
-            <a href="https://github.com/lleopu" target="_blank" class="px-6 py-3 bg-slate-800 hover:bg-slate-700 font-bold rounded-2xl border border-slate-700 transition flex items-center gap-2">
-                <i class="fa-brands fa-github"><span>GitHub</span></i>
+            <a href="#projects" class="px-6 py-3 bg-[#800020] hover:bg-[#5B0017] text-white font-bold rounded-2xl shadow-lg shadow-rose-900/20 transition">View Projects</a>
+            <a href="https://github.com/lleopu" target="_blank" class="px-6 py-3 bg-white hover:bg-[#F3ECE1] text-[#211B16] font-bold rounded-2xl border border-[#D6C8B4] transition flex items-center gap-2 shadow-sm">
+                <i class="fa-brands fa-github"></i><span>GitHub</span>
             </a>
         </div>
     </section>
 
     <!-- Achievements Section -->
-    <section id="achievements" class="max-w-5xl mx-auto px-6 py-16 border-t border-slate-800 space-y-8">
-        <h2 class="text-3xl font-extrabold">Achievements & Leadership</h2>
+    <section id="achievements" class="max-w-5xl mx-auto px-6 py-16 border-t border-[#E8DFD1] space-y-8">
+        <h2 class="text-3xl font-extrabold text-[#211B16]">🏆 Achievements & Leadership</h2>
         <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
-            <div class="bg-slate-900 border border-slate-800 p-6 rounded-3xl space-y-3">
-                <div class="text-rose-400 font-bold text-xl"><i class="fa-solid fa-medal mr-2"></i> OSN Informatika</div>
-                <p class="text-slate-400 text-sm">Won a Silver Medal and ranked 11th out of ~30,000 participants nationally in the 2026 National Science Olympiad (OSN).</p>
+            <div class="fun-card bg-[#FFFDF9] border border-[#E8DFD1] p-6 rounded-3xl space-y-3 shadow-sm">
+                <div class="text-[#800020] font-bold text-xl flex items-center gap-2">
+                    <span>🥇</span> OSN Informatika
+                </div>
+                <p class="text-[#5B4A40] text-sm leading-relaxed">Won a Silver Medal and ranked 11th out of ~30,000 participants nationally in the 2026 National Science Olympiad (OSN).</p>
             </div>
-            <div class="bg-slate-900 border border-slate-800 p-6 rounded-3xl space-y-3">
-                <div class="text-rose-400 font-bold text-xl"><i class="fa-solid fa-users-viewfinder mr-2"></i> Leadership</div>
-                <p class="text-slate-400 text-sm">Served as Head of Informatics Division at Olympus (school's olympiad organization) and as Class President.</p>
+            <div class="fun-card bg-[#FFFDF9] border border-[#E8DFD1] p-6 rounded-3xl space-y-3 shadow-sm">
+                <div class="text-[#800020] font-bold text-xl flex items-center gap-2">
+                    <span>💡</span> Leadership
+                </div>
+                <p class="text-[#5B4A40] text-sm leading-relaxed">Served as Head of Informatics Division at Olympus (school's olympiad organization) and as Class President.</p>
             </div>
         </div>
     </section>
 
-    <!-- Projects Section -->
-    <section id="projects" class="max-w-5xl mx-auto px-6 py-16 border-t border-slate-800 space-y-8">
-        <h2 class="text-3xl font-extrabold">Featured Projects</h2>
-        <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
-            <div class="bg-slate-900 border border-slate-800 p-6 rounded-3xl space-y-4 flex flex-col justify-between">
-                <div class="space-y-2">
-                    <h3 class="font-bold text-xl text-rose-400">Coulomb's Law Masterclass</h3>
-                    <p class="text-slate-400 text-sm">An interactive physics learning resource covering electrostatic forces, 2D simulators, and exam practice.</p>
+    <!-- Competitive Programming Profiles Section -->
+    <section id="cp" class="max-w-5xl mx-auto px-6 py-16 border-t border-[#E8DFD1] space-y-8">
+        <h2 class="text-3xl font-extrabold text-[#211B16]">⚡ Competitive Programming Profiles</h2>
+        <p class="text-[#5B4A40] text-sm">Let's solve some problems together! You can check out my handles and contest histories here:</p>
+        <div class="grid grid-cols-1 sm:grid-cols-3 gap-6">
+            <!-- Codeforces -->
+            <a href="https://codeforces.com/profile/leo_pu" target="_blank" class="fun-card bg-[#FFFDF9] border border-[#E8DFD1] hover:border-[#800020] p-6 rounded-3xl space-y-3 shadow-sm group">
+                <div class="text-blue-600 font-bold text-xl flex items-center justify-between">
+                    <span><i class="fa-solid fa-code mr-2"></i>Codeforces</span>
+                    <i class="fa-solid fa-arrow-up-right-from-square text-xs opacity-0 group-hover:opacity-100 transition"></i>
                 </div>
-                <a href="https://lleopu.github.io/electrostatic-forces/" target="_blank" class="text-sm font-bold text-rose-400 hover:underline">Visit Live Site &rarr;</a>
+                <p class="text-[#5B4A40] font-mono text-sm font-bold">handle: leo_pu</p>
+            </a>
+            <!-- TLX Tokopedia -->
+            <a href="https://tlx.tokopedia.com/@leo_pu" target="_blank" class="fun-card bg-[#FFFDF9] border border-[#E8DFD1] hover:border-[#800020] p-6 rounded-3xl space-y-3 shadow-sm group">
+                <div class="text-emerald-600 font-bold text-xl flex items-center justify-between">
+                    <span><i class="fa-solid fa-terminal mr-2"></i>TLX</span>
+                    <i class="fa-solid fa-arrow-up-right-from-square text-xs opacity-0 group-hover:opacity-100 transition"></i>
+                </div>
+                <p class="text-[#5B4A40] font-mono text-sm font-bold">handle: leo_pu</p>
+            </a>
+            <!-- AtCoder -->
+            <a href="https://atcoder.jp/users/leo_pu" target="_blank" class="fun-card bg-[#FFFDF9] border border-[#E8DFD1] hover:border-[#800020] p-6 rounded-3xl space-y-3 shadow-sm group">
+                <div class="text-amber-600 font-bold text-xl flex items-center justify-between">
+                    <span><i class="fa-solid fa-chart-line mr-2"></i>AtCoder</span>
+                    <i class="fa-solid fa-arrow-up-right-from-square text-xs opacity-0 group-hover:opacity-100 transition"></i>
+                </div>
+                <p class="text-[#5B4A40] font-mono text-sm font-bold">handle: leo_pu</p>
+            </a>
+        </div>
+    </section>
+
+    <!-- Projects Section -->
+    <section id="projects" class="max-w-5xl mx-auto px-6 py-16 border-t border-[#E8DFD1] space-y-8">
+        <h2 class="text-3xl font-extrabold text-[#211B16]">💻 Featured Projects</h2>
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+            <div class="fun-card bg-[#FFFDF9] border border-[#E8DFD1] p-6 rounded-3xl space-y-4 flex flex-col justify-between shadow-sm">
+                <div class="space-y-2">
+                    <h3 class="font-bold text-xl text-[#800020]">Coulomb's Law Masterclass</h3>
+                    <p class="text-[#5B4A40] text-sm leading-relaxed">An interactive physics learning resource covering electrostatic forces, 2D simulators, and exam practice.</p>
+                </div>
+                <a href="https://lleopu.github.io/electrostatic-forces/" target="_blank" class="text-sm font-bold text-[#800020] hover:underline flex items-center gap-1">Visit Live Site &rarr;</a>
             </div>
         </div>
     </section>
 
     <!-- Footer -->
-    <footer class="border-t border-slate-800 bg-slate-900 py-8 text-center text-sm text-slate-500">
-        <p>&copy; 2026 Leonardus Lintang Panji Utama. Built with GitHub Pages.</p>
+    <footer class="border-t border-[#E8DFD1] bg-[#F3ECE1] py-8 text-center text-sm text-[#5B4A40]">
+        <p>&copy; 2026 Leonardus Lintang Panji Utama. Built with fun & GitHub Pages.</p>
     </footer>
 
 </body>
