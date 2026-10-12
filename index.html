@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Leonardus Lintang Panji Utama | Personal Portfolio</title>
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body class="bg-slate-950 text-slate-100 font-sans leading-relaxed">
+
+    <!-- Header / Navbar -->
+    <header class="sticky top-0 z-50 backdrop-blur-md bg-slate-900/80 border-b border-slate-800">
+        <div class="max-w-5xl mx-auto px-6 h-20 flex items-center justify-between">
+            <span class="font-extrabold text-xl text-rose-400">Lintang Utama</span>
+            <nav class="space-x-6 text-sm font-semibold">
+                <a href="#about" class="hover:text-rose-400 transition">About</a>
+                <a href="#achievements" class="hover:text-rose-400 transition">Achievements</a>
+                <a href="#projects" class="hover:text-rose-400 transition">Projects</a>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="max-w-5xl mx-auto px-6 py-20 flex flex-col items-start space-y-6">
+        <span class="px-4 py-1.5 rounded-full text-xs font-bold bg-rose-500/10 text-rose-400 border border-rose-500/20">
+            Grade 12 Student & Competitive Programmer
+        </span>
+        <h1 class="text-4xl sm:text-6xl font-extrabold tracking-tight">
+            Hi, I'm <span class="text-rose-400">Leonardus Lintang</span>.
+        </h1>
+        <p class="max-w-2xl text-slate-400 text-lg">
+            A high school student at Kesatuan Bangsa Bilingual Boarding School with a deep passion for computer science, informatics olympiads, and building interactive web applications.
+        </p>
+        <div class="flex gap-4 pt-2">
+            <a href="#projects" class="px-6 py-3 bg-rose-600 hover:bg-rose-700 font-bold rounded-2xl shadow-lg transition">View Projects</a>
+            <a href="https://github.com/lleopu" target="_blank" class="px-6 py-3 bg-slate-800 hover:bg-slate-700 font-bold rounded-2xl border border-slate-700 transition flex items-center gap-2">
+                <i class="fa-brands fa-github"><span>GitHub</span></i>
+            </a>
+        </div>
+    </section>
+
+    <!-- Achievements Section -->
+    <section id="achievements" class="max-w-5xl mx-auto px-6 py-16 border-t border-slate-800 space-y-8">
+        <h2 class="text-3xl font-extrabold">Achievements & Leadership</h2>
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+            <div class="bg-slate-900 border border-slate-800 p-6 rounded-3xl space-y-3">
+                <div class="text-rose-400 font-bold text-xl"><i class="fa-solid fa-medal mr-2"></i> OSN Informatika</div>
+                <p class="text-slate-400 text-sm">Won a Silver Medal and ranked 11th out of ~30,000 participants nationally in the 2026 National Science Olympiad (OSN).</p>
+            </div>
+            <div class="bg-slate-900 border border-slate-800 p-6 rounded-3xl space-y-3">
+                <div class="text-rose-400 font-bold text-xl"><i class="fa-solid fa-users-viewfinder mr-2"></i> Leadership</div>
+                <p class="text-slate-400 text-sm">Served as Head of Informatics Division at Olympus (school's olympiad organization) and as Class President.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Projects Section -->
+    <section id="projects" class="max-w-5xl mx-auto px-6 py-16 border-t border-slate-800 space-y-8">
+        <h2 class="text-3xl font-extrabold">Featured Projects</h2>
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+            <div class="bg-slate-900 border border-slate-800 p-6 rounded-3xl space-y-4 flex flex-col justify-between">
+                <div class="space-y-2">
+                    <h3 class="font-bold text-xl text-rose-400">Coulomb's Law Masterclass</h3>
+                    <p class="text-slate-400 text-sm">An interactive physics learning resource covering electrostatic forces, 2D simulators, and exam practice.</p>
+                </div>
+                <a href="https://lleopu.github.io/electrostatic-forces/" target="_blank" class="text-sm font-bold text-rose-400 hover:underline">Visit Live Site &rarr;</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="border-t border-slate-800 bg-slate-900 py-8 text-center text-sm text-slate-500">
+        <p>&copy; 2026 Leonardus Lintang Panji Utama. Built with GitHub Pages.</p>
+    </footer>
+
+</body>
+</html>
