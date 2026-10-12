@@ -68,6 +68,7 @@
     .hero-card { position: relative; padding: 14px; background: var(--surface); border: 1px solid var(--border); border-radius: 28px; box-shadow: var(--shadow); transform: rotate(1.5deg); }
     .portrait { min-height: 340px; border-radius: 19px; display: grid; place-items: center; text-align: center; padding: 25px; background: radial-gradient(circle at 80% 15%, rgba(255,255,255,.7), transparent 32%), linear-gradient(145deg, var(--primary), var(--accent)); color: #fff; overflow: hidden; }
     .portrait-inner { max-width: 230px; }
+    .portrait-photo { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; object-position: center; border-radius: 19px; }
     .monogram { display: grid; place-items: center; width: 116px; height: 116px; margin: 0 auto 20px; border: 1px solid rgba(255,255,255,.65); border-radius: 36px; background: rgba(255,255,255,.14); font-size: 2.6rem; font-weight: 850; letter-spacing: -.08em; box-shadow: 0 12px 40px rgba(47,18,26,.14); }
     .portrait strong { display: block; font-size: 1.3rem; }
     .portrait small { display: block; margin-top: 5px; opacity: .9; }
@@ -220,15 +221,10 @@
           <div class="fact"><strong>∞</strong><span data-i18n="fact3">Semangat belajar</span></div>
         </div>
       </div>
-      <div class="hero-card reveal" aria-label="Profile placeholder">
-        <div class="portrait">
-          <div class="portrait-inner">
-            <div class="monogram">LLPU</div>
-            <strong>Leonardus Lintang Panji Utama</strong>
-            <small data-i18n="portraitSubtitle">Student · Informatics Enthusiast</small>
-          </div>
+      <div class="hero-card reveal" aria-label="Foto profil Leonardus Lintang Panji Utama">
+        <div class="portrait" style="position:relative; padding:0; background:var(--surface);">
+          <img class="portrait-photo" src="assets/profile.jpeg" alt="Foto profil Leonardus Lintang Panji Utama">
         </div>
-        <p class="photo-note" data-i18n="photoNote">Tip: ganti area ini dengan foto profesionalmu.</p>
       </div>
     </header>
 
