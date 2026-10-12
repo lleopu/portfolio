@@ -1,190 +1,671 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="id">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Leonardus Lintang Panji Utama | Personal Portfolio</title>
-    <!-- Tailwind CSS CDN -->
-    <script src="https://cdn.tailwindcss.com"></script>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Fraunces:wght@600;700&display=swap" rel="stylesheet">
-    <style>
-        body { font-family: 'Inter', sans-serif; background-color: #FAF6F0; color: #211B16; }
-        h1, h2, h3 { font-family: 'Fraunces', serif; }
-        .fun-card { transition: all 0.25s ease; }
-        .fun-card:hover { transform: translateY(-3px); box-shadow: 0 10px 20px -8px rgba(128, 0, 32, 0.12); }
-    </style>
-</head>
-<body class="selection:bg-rose-500 selection:text-white">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="theme-color" content="#F8FAFC" />
+  <meta name="description" content="Personal portfolio Leonardus Lintang Panji Utama — student, programmer, and lifelong learner." />
+  <title>Leonardus Lintang Panji Utama — Personal Portfolio</title>
+  <style>
+    :root {
+      color-scheme: light;
+      --bg: #F8FAFC;
+      --surface: #FFFFFF;
+      --surface-2: #F1F5F9;
+      --text: #0F172A;
+      --muted: #64748B;
+      --primary: #2563EB;
+      --accent: #F59E0B;
+      --accent-2: #D97706;
+      --border: #E2E8F0;
+      --shadow: 0 16px 42px rgba(15, 23, 42, .07);
+      --nav-bg: rgba(248, 250, 252, .88);
+    }
+    [data-theme="dark"] {
+      color-scheme: dark;
+      --bg: #0F172A;
+      --surface: #1E293B;
+      --surface-2: #263449;
+      --text: #F8FAFC;
+      --muted: #94A3B8;
+      --primary: #38BDF8;
+      --accent: #FBBF24;
+      --accent-2: #FCD34D;
+      --border: #334155;
+      --shadow: 0 16px 42px rgba(0, 0, 0, .22);
+      --nav-bg: rgba(15, 23, 42, .88);
+    }
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; scroll-padding-top: 88px; }
+    body { margin: 0; background: var(--bg); color: var(--text); font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif; line-height: 1.7; transition: background .25s, color .25s; }
+    a { color: inherit; }
+    button { font: inherit; }
+    .container { width: min(1100px, calc(100% - 40px)); margin-inline: auto; }
+    .topbar { position: sticky; top: 0; z-index: 10; background: var(--nav-bg); border-bottom: 1px solid var(--border); backdrop-filter: blur(14px); }
+    .nav { min-height: 72px; display: flex; align-items: center; justify-content: space-between; gap: 20px; }
+    .brand { display: flex; align-items: center; gap: 11px; text-decoration: none; font-weight: 800; letter-spacing: -.03em; white-space: nowrap; }
+    .brand-mark { display: grid; place-items: center; width: 38px; height: 38px; border-radius: 12px; color: #fff; background: var(--primary); font-size: .9rem; }
+    .nav-links { display: flex; align-items: center; gap: 24px; }
+    .nav-links a { text-decoration: none; color: var(--muted); font-size: .9rem; font-weight: 650; }
+    .nav-links a:hover { color: var(--accent); }
+    .nav-actions { display: flex; gap: 8px; align-items: center; }
+    .icon-button, .lang-button { border: 1px solid var(--border); background: var(--surface); color: var(--text); border-radius: 12px; min-height: 40px; padding: 0 12px; cursor: pointer; }
+    .icon-button { width: 42px; padding: 0; font-size: 1.05rem; }
+    .lang-button { font-size: .82rem; font-weight: 750; }
+    button:focus-visible, a:focus-visible { outline: 3px solid var(--accent-2); outline-offset: 3px; }
+    .hero { padding: 88px 0 72px; display: grid; grid-template-columns: 1.25fr .75fr; align-items: center; gap: 56px; }
+    .eyebrow { display: inline-flex; align-items: center; gap: 9px; color: var(--accent); font-size: .78rem; font-weight: 800; letter-spacing: .14em; text-transform: uppercase; }
+    .eyebrow::before { content: ""; width: 26px; height: 2px; background: var(--accent); }
+    h1 { font-size: clamp(2.7rem, 6vw, 5.3rem); letter-spacing: -.065em; line-height: 1.04; margin: 20px 0; max-width: 750px; }
+    h1 span { color: var(--accent); }
+    .hero-copy { color: var(--muted); font-size: 1.08rem; max-width: 620px; }
+    .hero-buttons { display: flex; flex-wrap: wrap; gap: 12px; margin-top: 28px; }
+    .button { display: inline-flex; align-items: center; justify-content: center; gap: 8px; padding: 12px 18px; border-radius: 13px; text-decoration: none; border: 1px solid var(--border); font-weight: 750; font-size: .92rem; transition: transform .2s, background .2s; }
+    .button:hover { transform: translateY(-2px); }
+    .button.primary { background: var(--primary); color: #FFFFFF; border-color: var(--primary); }
+    [data-theme="dark"] .button.primary { background: var(--primary); border-color: var(--primary); color: #082F49; }
+    .button.secondary { background: var(--surface); }
+    .hero-card { position: relative; padding: 14px; background: var(--surface); border: 1px solid var(--border); border-radius: 28px; box-shadow: var(--shadow); transform: rotate(1.5deg); }
+    .portrait { min-height: 340px; border-radius: 19px; display: grid; place-items: center; text-align: center; padding: 25px; background: radial-gradient(circle at 80% 15%, rgba(255,255,255,.7), transparent 32%), linear-gradient(145deg, var(--primary), var(--accent)); color: #fff; overflow: hidden; }
+    .portrait-inner { max-width: 230px; }
+    .monogram { display: grid; place-items: center; width: 116px; height: 116px; margin: 0 auto 20px; border: 1px solid rgba(255,255,255,.65); border-radius: 36px; background: rgba(255,255,255,.14); font-size: 2.6rem; font-weight: 850; letter-spacing: -.08em; box-shadow: 0 12px 40px rgba(47,18,26,.14); }
+    .portrait strong { display: block; font-size: 1.3rem; }
+    .portrait small { display: block; margin-top: 5px; opacity: .9; }
+    .photo-note { margin: 12px 5px 0; font-size: .76rem; color: var(--muted); text-align: center; }
+    .quick-facts { display: grid; grid-template-columns: repeat(3, 1fr); gap: 12px; margin-top: 28px; }
+    .fact { padding: 14px; background: var(--surface); border: 1px solid var(--border); border-radius: 15px; }
+    .fact strong { display: block; font-size: 1.25rem; color: var(--accent); }
+    .fact span { color: var(--muted); font-size: .78rem; }
+    section { padding: 65px 0; }
+    .section-heading { max-width: 660px; margin-bottom: 30px; }
+    .section-heading h2 { font-size: clamp(1.9rem, 4vw, 3rem); letter-spacing: -.05em; line-height: 1.15; margin: 12px 0; }
+    .section-heading p { color: var(--muted); margin: 0; }
+    .about-grid { display: grid; grid-template-columns: .8fr 1.2fr; gap: 20px; }
+    .panel { background: var(--surface); border: 1px solid var(--border); border-radius: 22px; padding: 26px; box-shadow: var(--shadow); }
+    .panel h3 { margin: 0 0 12px; font-size: 1.15rem; }
+    .panel p { color: var(--muted); margin: 0 0 12px; }
+    .detail-list { display: grid; gap: 12px; margin-top: 15px; }
+    .detail { display: flex; justify-content: space-between; gap: 16px; border-bottom: 1px solid var(--border); padding-bottom: 10px; font-size: .92rem; }
+    .detail:last-child { border: 0; padding-bottom: 0; }
+    .detail span:first-child { color: var(--muted); }
+    .detail span:last-child { text-align: right; font-weight: 700; }
+    .quote { background: var(--surface-2); border-radius: 16px; padding: 18px; margin-top: 18px; border-left: 3px solid var(--accent); }
+    .quote blockquote { margin: 0; font-size: 1.1rem; font-weight: 800; letter-spacing: -.02em; }
+    .quote p { margin: 7px 0 0; font-size: .87rem; }
+    .timeline { position: relative; display: grid; gap: 16px; max-width: 850px; }
+    .timeline::before { content: ""; position: absolute; left: 17px; top: 22px; bottom: 22px; width: 2px; background: var(--border); }
+    .timeline-item { position: relative; display: grid; grid-template-columns: 36px 1fr; gap: 17px; }
+    .timeline-dot { z-index: 1; width: 36px; height: 36px; display: grid; place-items: center; border-radius: 50%; border: 2px solid var(--accent); background: var(--bg); color: var(--accent); font-size: .75rem; font-weight: 900; }
+    .timeline-content { background: var(--surface); border: 1px solid var(--border); border-radius: 18px; padding: 20px 22px; }
+    .timeline-meta { color: var(--accent); font-size: .76rem; text-transform: uppercase; letter-spacing: .1em; font-weight: 850; }
+    .timeline-content h3 { margin: 4px 0 7px; font-size: 1.12rem; }
+    .timeline-content p { margin: 0; color: var(--muted); }
+    .achievement-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; }
+    .achievement { background: var(--surface); border: 1px solid var(--border); border-radius: 21px; padding: 24px; box-shadow: var(--shadow); }
+    .medal { width: 54px; height: 54px; display: grid; place-items: center; border-radius: 17px; font-size: 1.6rem; background: var(--surface-2); margin-bottom: 18px; }
+    .achievement .year { color: var(--accent); font-size: .76rem; font-weight: 850; letter-spacing: .12em; text-transform: uppercase; }
+    .achievement h3 { font-size: 1.1rem; margin: 8px 0; }
+    .achievement p { margin: 0; color: var(--muted); font-size: .91rem; }
+    .note { color: var(--muted); font-size: .82rem; margin-top: 16px; }
+    .code-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; }
+    .code-card { display: flex; flex-direction: column; min-height: 245px; padding: 24px; background: var(--surface); border: 1px solid var(--border); border-radius: 21px; box-shadow: var(--shadow); }
+    .code-card-top { display: flex; align-items: center; justify-content: space-between; gap: 12px; margin-bottom: 18px; }
+    .code-icon { display: grid; place-items: center; width: 48px; height: 48px; border-radius: 15px; color: var(--primary); background: var(--surface-2); font-weight: 900; font-size: 1rem; }
+    .code-status { display: inline-flex; align-items: center; gap: 6px; border: 1px solid var(--border); border-radius: 999px; padding: 5px 9px; color: var(--muted); font-size: .72rem; font-weight: 750; white-space: nowrap; }
+    .code-status::before { content: ""; width: 6px; height: 6px; border-radius: 50%; background: var(--accent); }
+    .code-card h3 { margin: 0 0 8px; font-size: 1.15rem; }
+    .code-card p { color: var(--muted); font-size: .9rem; margin: 0 0 18px; }
+    .code-card .button { margin-top: auto; align-self: flex-start; }
+    .code-intro { display: flex; justify-content: space-between; align-items: flex-start; gap: 24px; }
+    .code-intro .section-heading { margin-bottom: 30px; }
+    .code-tip { flex: 0 0 min(300px, 35%); padding: 18px; background: var(--surface-2); border: 1px solid var(--border); border-radius: 16px; color: var(--muted); font-size: .86rem; }
+    .code-tip strong { display: block; color: var(--text); margin-bottom: 5px; }
 
-    <!-- Header / Navbar -->
-    <header class="sticky top-0 z-50 backdrop-blur-md bg-[#FAF6F0]/90 border-b border-[#E8DFD1]">
-        <div class="max-w-5xl mx-auto px-6 h-20 flex items-center justify-between">
-            <span class="font-extrabold text-xl text-[#800020] tracking-tight">✨ Lintang Utama</span>
-            <nav class="space-x-6 text-sm font-bold text-[#5B4A40]">
-                <a href="#about" class="hover:text-[#800020] transition">About</a>
-                <a href="#timeline" class="hover:text-[#800020] transition">OSN Timeline</a>
-                <a href="#cp" class="hover:text-[#800020] transition">CP Profiles</a>
-                <a href="#solutions" class="hover:text-[#800020] transition">CP Solutions</a>
-                <a href="#projects" class="hover:text-[#800020] transition">Projects</a>
-            </nav>
+    .solution-tools { display:flex; flex-wrap:wrap; gap:12px; align-items:center; margin: 22px 0 18px; }
+    .solution-search { flex:1 1 230px; min-height:46px; padding:11px 14px; border:1px solid var(--border); border-radius:13px; background:var(--surface); color:var(--text); }
+    .solution-filters { display:flex; flex-wrap:wrap; gap:8px; }
+    .filter-button { border:1px solid var(--border); border-radius:999px; padding:9px 14px; background:var(--surface); color:var(--text); cursor:pointer; font-size:.86rem; font-weight:750; }
+    .filter-button[aria-pressed="true"] { background:var(--primary); border-color:var(--primary); color:#fff; }
+    [data-theme="dark"] .filter-button[aria-pressed="true"] { color:#082F49; }
+    .solution-list { display:grid; grid-template-columns:repeat(3,minmax(0,1fr)); gap:16px; }
+    .solution-card { min-width:0; padding:21px; background:var(--surface); border:1px solid var(--border); border-radius:19px; box-shadow:var(--shadow); display:flex; flex-direction:column; }
+    .solution-meta { display:flex; flex-wrap:wrap; align-items:center; gap:7px; margin-bottom:12px; }
+    .solution-tag { font-size:.72rem; font-weight:800; padding:4px 9px; border-radius:999px; background:var(--surface-2); color:var(--primary); }
+    .solution-card h3 { margin:0 0 7px; font-size:1.03rem; overflow-wrap:anywhere; }
+    .solution-card p { color:var(--muted); font-size:.87rem; margin:0 0 16px; }
+    .solution-actions { display:flex; flex-wrap:wrap; gap:8px; margin-top:auto; }
+    .solution-actions .button { padding:9px 12px; font-size:.82rem; cursor:pointer; }
+    .solution-actions button:disabled { opacity:.45; cursor:not-allowed; transform:none; }
+    .code-preview { margin-top:22px; border:1px solid var(--border); border-radius:19px; overflow:hidden; background:var(--surface); box-shadow:var(--shadow); }
+    .code-preview[hidden] { display:none; }
+    .code-preview-head { display:flex; justify-content:space-between; align-items:center; flex-wrap:wrap; gap:12px; padding:15px 18px; border-bottom:1px solid var(--border); background:var(--surface-2); }
+    .code-preview-head strong { overflow-wrap:anywhere; }
+    .code-preview-actions { display:flex; gap:8px; flex-wrap:wrap; }
+    .code-preview pre { margin:0; padding:20px; overflow:auto; max-height:480px; color:var(--text); background:var(--surface); font: .86rem/1.65 ui-monospace,SFMono-Regular,Menlo,Consolas,monospace; tab-size:4; }
+    .code-preview code { white-space:pre; }
+    .solution-empty { grid-column:1/-1; padding:24px; border:1px dashed var(--border); border-radius:16px; color:var(--muted); text-align:center; }
+    @media (max-width:850px) { .solution-list { grid-template-columns:1fr; } }
+    .skills { display: flex; flex-wrap: wrap; gap: 10px; }
+    .chip { background: var(--surface); border: 1px solid var(--border); padding: 9px 13px; border-radius: 999px; font-size: .88rem; font-weight: 700; }
+    .closing { padding: 38px; background: var(--primary); color: #FFFFFF; border-radius: 26px; display: flex; align-items: center; justify-content: space-between; gap: 24px; }
+    [data-theme="dark"] .closing { background: var(--surface); border: 1px solid var(--border); }
+    .closing h2 { margin: 0 0 8px; font-size: clamp(1.6rem, 3vw, 2.4rem); letter-spacing: -.04em; }
+    .closing p { margin: 0; color: inherit; opacity: .9; max-width: 610px; }
+    .closing .button { color: var(--text); background: var(--surface); border-color: var(--border); white-space: nowrap; }
+    footer { padding: 28px 0; margin-top: 65px; border-top: 1px solid var(--border); color: var(--muted); font-size: .85rem; }
+    .footer-inner { display: flex; justify-content: space-between; gap: 15px; flex-wrap: wrap; }
+    .reveal { animation: rise .7s both; }
+    @keyframes rise { from { opacity: 0; transform: translateY(12px); } to { opacity: 1; transform: translateY(0); } }
+    @media (max-width: 850px) {
+      .nav-links { display: none; }
+      .hero { grid-template-columns: 1fr; gap: 34px; padding-top: 60px; }
+      .hero-card { max-width: 420px; width: 100%; margin: 0 auto; }
+      .portrait { min-height: 280px; }
+      .about-grid { grid-template-columns: 1fr; }
+      .achievement-grid, .code-grid { grid-template-columns: 1fr; }
+      .code-intro { display: block; }
+      .code-tip { max-width: none; margin: -8px 0 24px; }
+      .closing { align-items: flex-start; flex-direction: column; }
+    }
+    @media (max-width: 520px) {
+      .container { width: min(100% - 28px, 1100px); }
+      .brand { font-size: .9rem; }
+      .brand-mark { width: 34px; height: 34px; }
+      .nav { min-height: 64px; gap: 8px; }
+      .lang-button { padding: 0 9px; }
+      .hero { padding: 48px 0 40px; }
+      .quick-facts { gap: 7px; }
+      .fact { padding: 11px 9px; }
+      .fact strong { font-size: 1.05rem; }
+      .fact span { font-size: .7rem; }
+      section { padding: 45px 0; }
+      .panel { padding: 20px; }
+      .timeline-content { padding: 17px; }
+      .closing { padding: 25px; }
+    }
+    @media (prefers-reduced-motion: reduce) { *, *::before, *::after { scroll-behavior: auto !important; animation-duration: .01ms !important; transition-duration: .01ms !important; } }
+  </style>
+</head>
+<body>
+  <div class="topbar">
+    <nav class="nav container" aria-label="Main navigation">
+      <a class="brand" href="#home"><span class="brand-mark">LLPU</span><span>Leonardus Lintang Panji Utama</span></a>
+      <div class="nav-links">
+        <a href="#about" data-i18n="navAbout">Tentang</a>
+        <a href="#journey" data-i18n="navJourney">Perjalanan</a>
+        <a href="#achievements" data-i18n="navAchievements">Prestasi</a>
+        <a href="#codes" data-i18n="navCodes">Kode</a>
+        <a href="#interests" data-i18n="navInterests">Minat</a>
+      </div>
+      <div class="nav-actions">
+        <button class="lang-button" id="languageToggle" type="button" aria-label="Switch language">EN</button>
+        <button class="icon-button" id="themeToggle" type="button" aria-label="Switch color theme" title="Switch theme">☾</button>
+      </div>
+    </nav>
+  </div>
+
+  <main>
+    <header class="hero container" id="home">
+      <div class="reveal">
+        <div class="eyebrow" data-i18n="heroEyebrow">Pelajar · Programmer · Pembelajar</div>
+        <h1 data-i18n-html="heroTitle">Halo, saya<br><span>Leonardus Lintang Panji Utama.</span></h1>
+        <p class="hero-copy" data-i18n="heroCopy">Saya adalah pelajar SMA yang tertarik pada Informatika, pemrograman, dan pemecahan masalah. Saya senang terus belajar, mencoba tantangan baru, dan mengembangkan diri melalui setiap proses.</p>
+        <div class="hero-buttons">
+          <a class="button primary" href="#journey" data-i18n="heroButton1">Lihat Perjalanan <span aria-hidden="true">↘</span></a>
+          <a class="button secondary" href="#about" data-i18n="heroButton2">Kenali Saya</a>
         </div>
+        <div class="quick-facts">
+          <div class="fact"><strong>OSN</strong><span data-i18n="fact1">Perjalanan Informatika</span></div>
+          <div class="fact"><strong>C++</strong><span data-i18n="fact2">Bahasa yang dipelajari</span></div>
+          <div class="fact"><strong>∞</strong><span data-i18n="fact3">Semangat belajar</span></div>
+        </div>
+      </div>
+      <div class="hero-card reveal" aria-label="Profile placeholder">
+        <div class="portrait">
+          <div class="portrait-inner">
+            <div class="monogram">LLPU</div>
+            <strong>Leonardus Lintang Panji Utama</strong>
+            <small data-i18n="portraitSubtitle">Student · Informatics Enthusiast</small>
+          </div>
+        </div>
+        <p class="photo-note" data-i18n="photoNote">Tip: ganti area ini dengan foto profesionalmu.</p>
+      </div>
     </header>
 
-    <!-- Hero Section -->
-    <section id="about" class="max-w-5xl mx-auto px-6 py-20 flex flex-col items-start space-y-6">
-        <span class="px-4 py-1.5 rounded-full text-xs font-bold bg-rose-500/15 text-rose-700 border border-rose-500/30 flex items-center gap-2">
-            <span>🚀</span> Grade 12 Student & Competitive Programmer
-        </span>
-        <h1 class="text-4xl sm:text-6xl font-extrabold tracking-tight text-[#211B16]">
-            Hi, I'm <span class="text-[#800020]">Leonardus Lintang Panji Utama</span>!
-        </h1>
-        <p class="max-w-2xl text-[#5B4A40] text-lg leading-relaxed">
-            A high school student at Kesatuan Bangsa Bilingual Boarding School with a deep passion for computer science, informatics olympiads, and building fun, interactive web experiences.
-        </p>
-        <div class="flex gap-4 pt-2">
-            <a href="#projects" class="px-6 py-3 bg-[#800020] hover:bg-[#5B0017] text-white font-bold rounded-2xl shadow-lg shadow-rose-900/20 transition">View Projects</a>
-            <a href="https://github.com/lleopu" target="_blank" class="px-6 py-3 bg-white hover:bg-[#F3ECE1] text-[#211B16] font-bold rounded-2xl border border-[#D6C8B4] transition flex items-center gap-2 shadow-sm">
-                <i class="fa-brands fa-github"></i><span>GitHub</span>
-            </a>
-        </div>
+    <section class="container" id="about">
+      <div class="section-heading">
+        <div class="eyebrow" data-i18n="aboutEyebrow">Sedikit tentang saya</div>
+        <h2 data-i18n="aboutTitle">Selalu ingin bertumbuh.</h2>
+        <p data-i18n="aboutLead">Saya percaya perkembangan besar berawal dari rasa ingin tahu, konsistensi, dan keberanian untuk mencoba.</p>
+      </div>
+      <div class="about-grid">
+        <article class="panel">
+          <h3 data-i18n="profileTitle">Profil singkat</h3>
+          <p data-i18n="profileCopy">Saya menaruh minat pada teknologi, terutama pemrograman dan algoritma. Saya menikmati proses mengurai masalah yang rumit menjadi langkah-langkah kecil yang bisa diselesaikan.</p>
+          <div class="detail-list">
+            <div class="detail"><span data-i18n="detailSchool">Sekolah</span><span>SMA Kesatuan Bangsa</span></div>
+            <div class="detail"><span data-i18n="detailFocus">Fokus</span><span data-i18n="detailFocusValue">Informatika & problem solving</span></div>
+            <div class="detail"><span data-i18n="detailHobby">Hobi</span><span data-i18n="detailHobbyValue">Coding, futsal</span></div>
+          </div>
+        </article>
+        <article class="panel">
+          <h3 data-i18n="beliefTitle">Hal yang saya yakini</h3>
+          <p data-i18n="beliefCopy">Bagi saya, prestasi bukan hanya tentang hasil akhir, tetapi juga tentang proses, disiplin, dan pelajaran yang didapat saat menghadapi tantangan.</p>
+          <div class="quote">
+            <blockquote>“Always trying to give my best, and let God do the rest.”</blockquote>
+            <p data-i18n="quoteCaption">Prinsip hidup — berusaha sebaik mungkin dan percaya kepada Tuhan.</p>
+          </div>
+        </article>
+      </div>
     </section>
 
-    <!-- OSN Journey Timeline (Line Format) -->
-    <section id="timeline" class="max-w-4xl mx-auto px-6 py-16 border-t border-[#E8DFD1] space-y-8">
-        <div class="space-y-2">
-            <h2 class="text-3xl font-extrabold text-[#211B16]">📈 OSN Journey Timeline</h2>
-            <p class="text-[#5B4A40] text-sm">Garis waktu perjalanan kompetisi sains nasional saya dari tingkat SD hingga SMA:</p>
-        </div>
-
-        <div class="relative border-l-2 border-[#D6C8B4] ml-4 md:ml-6 space-y-8 py-4">
-            <div class="relative pl-8 md:pl-10">
-                <div class="absolute -left-[9px] top-1.5 w-4 h-4 rounded-full bg-[#800020] border-4 border-[#FAF6F0]"></div>
-                <div class="fun-card bg-[#FFFDF9] border border-[#E8DFD1] p-5 rounded-2xl shadow-sm space-y-1">
-                    <span class="text-xs font-extrabold px-2.5 py-1 bg-amber-500/20 text-amber-800 rounded-full">SD Kelas 4</span>
-                    <h3 class="text-lg font-bold text-[#800020] mt-1">Matematika SD</h3>
-                    <p class="text-[#5B4A40] text-sm font-medium">Tingkat Provinsi</p>
-                </div>
-            </div>
-
-            <div class="relative pl-8 md:pl-10">
-                <div class="absolute -left-[9px] top-1.5 w-4 h-4 rounded-full bg-[#800020] border-4 border-[#FAF6F0]"></div>
-                <div class="fun-card bg-[#FFFDF9] border border-[#E8DFD1] p-5 rounded-2xl shadow-sm space-y-1">
-                    <span class="text-xs font-extrabold px-2.5 py-1 bg-amber-500/20 text-amber-800 rounded-full">SD Kelas 5</span>
-                    <h3 class="text-lg font-bold text-[#800020] mt-1">Matematika SD</h3>
-                    <p class="text-[#5B4A40] text-sm font-medium">Harapan 1 (Rank 31 dari 30 medalis)</p>
-                </div>
-            </div>
-
-            <div class="relative pl-8 md:pl-10">
-                <div class="absolute -left-[9px] top-1.5 w-4 h-4 rounded-full bg-amber-600 border-4 border-[#FAF6F0]"></div>
-                <div class="fun-card bg-[#FFFDF9] border border-[#E8DFD1] p-5 rounded-2xl shadow-sm space-y-1">
-                    <span class="text-xs font-extrabold px-2.5 py-1 bg-amber-500/20 text-amber-800 rounded-full">SMP Kelas 8</span>
-                    <h3 class="text-lg font-bold text-amber-700 mt-1">Matematika SMP</h3>
-                    <p class="text-slate-800 text-sm font-bold">🥉 Bronze Medal (Rank 24 dari 30)</p>
-                </div>
-            </div>
-
-            <div class="relative pl-8 md:pl-10">
-                <div class="absolute -left-[9px] top-1.5 w-4 h-4 rounded-full bg-[#800020] border-4 border-[#FAF6F0]"></div>
-                <div class="fun-card bg-[#FFFDF9] border border-[#E8DFD1] p-5 rounded-2xl shadow-sm space-y-1">
-                    <span class="text-xs font-extrabold px-2.5 py-1 bg-rose-500/20 text-rose-800 rounded-full">SMP Kelas 9</span>
-                    <h3 class="text-lg font-bold text-[#800020] mt-1">Informatika</h3>
-                    <p class="text-[#5B4A40] text-sm font-medium">Rank 56 Nasional (Transisi awal ke bidang Informatika)</p>
-                </div>
-            </div>
-
-            <div class="relative pl-8 md:pl-10">
-                <div class="absolute -left-[9px] top-1.5 w-4 h-4 rounded-full bg-amber-600 border-4 border-[#FAF6F0]"></div>
-                <div class="fun-card bg-[#FFFDF9] border border-[#E8DFD1] p-5 rounded-2xl shadow-sm space-y-1">
-                    <span class="text-xs font-extrabold px-2.5 py-1 bg-rose-500/20 text-rose-800 rounded-full">SMA Kelas 10</span>
-                    <h3 class="text-lg font-bold text-amber-700 mt-1">Informatika</h3>
-                    <p class="text-slate-800 text-sm font-bold">🥉 Bronze Medal (Rank 18 Nasional)</p>
-                </div>
-            </div>
-
-            <div class="relative pl-8 md:pl-10">
-                <div class="absolute -left-[9px] top-1.5 w-4 h-4 rounded-full bg-emerald-600 border-4 border-[#FAF6F0] ring-4 ring-emerald-500/20"></div>
-                <div class="fun-card bg-[#FFFDF9] border-2 border-emerald-500/40 p-5 rounded-2xl shadow-sm space-y-1">
-                    <span class="text-xs font-extrabold px-2.5 py-1 bg-emerald-500/20 text-emerald-800 rounded-full">SMA Kelas 11 (2026)</span>
-                    <h3 class="text-lg font-bold text-emerald-700 mt-1">Informatika</h3>
-                    <p class="text-slate-900 text-sm font-extrabold">🥈 Silver Medal (Rank 11 dari ~30,000 peserta nasional)</p>
-                </div>
-            </div>
-        </div>
+    <section class="container" id="journey">
+      <div class="section-heading">
+        <div class="eyebrow" data-i18n="journeyEyebrow">Perjalanan saya</div>
+        <h2 data-i18n="journeyTitle">Langkah demi langkah.</h2>
+        <p data-i18n="journeyLead">Setiap tahap memberi pelajaran baru. Inilah ringkasan perjalanan belajar dan pengalaman kompetisi saya.</p>
+      </div>
+      <div class="timeline">
+        <article class="timeline-item">
+          <div class="timeline-dot">01</div>
+          <div class="timeline-content">
+            <div class="timeline-meta" data-i18n="stage1Meta">Sekolah dasar</div>
+            <h3 data-i18n="stage1Title">Awal perjalanan kompetisi</h3>
+            <p data-i18n="stage1Copy">Saya mulai mengenal kompetisi akademik sejak SD. Pengalaman awal mengajarkan saya untuk tetap mencoba, bahkan ketika hasilnya belum sesuai harapan.</p>
+          </div>
+        </article>
+        <article class="timeline-item">
+          <div class="timeline-dot">02</div>
+          <div class="timeline-content">
+            <div class="timeline-meta" data-i18n="stage2Meta">Sekolah menengah pertama</div>
+            <h3 data-i18n="stage2Title">Mengenal olimpiade matematika</h3>
+            <p data-i18n="stage2Copy">Saat SMP, saya mengikuti olimpiade matematika dan berhasil meraih medali perunggu. Pengalaman ini membuat saya semakin menghargai proses latihan dan ketekunan.</p>
+          </div>
+        </article>
+        <article class="timeline-item">
+          <div class="timeline-dot">03</div>
+          <div class="timeline-content">
+            <div class="timeline-meta" data-i18n="stage3Meta">SMA · Tahun pertama</div>
+            <h3 data-i18n="stage3Title">Beralih ke Informatika</h3>
+            <p data-i18n="stage3Copy">Saya memilih bidang Informatika dan berhasil menjadi finalis OSN pada tahun pertama SMA. Saya mulai lebih serius mendalami algoritma, logika, dan pemrograman.</p>
+          </div>
+        </article>
+        <article class="timeline-item">
+          <div class="timeline-dot">04</div>
+          <div class="timeline-content">
+            <div class="timeline-meta" data-i18n="stage4Meta">SMA · Tahun kedua</div>
+            <h3 data-i18n="stage4Title">Belajar dari tantangan</h3>
+            <p data-i18n="stage4Copy">Saya kembali berkompetisi dan meraih medali perunggu OSN Informatika. Hasil ini menjadi pengingat bahwa kemajuan dibangun melalui evaluasi dan latihan yang konsisten.</p>
+          </div>
+        </article>
+        <article class="timeline-item">
+          <div class="timeline-dot">05</div>
+          <div class="timeline-content">
+            <div class="timeline-meta" data-i18n="stage5Meta">SMA · Tahun terakhir</div>
+            <h3 data-i18n="stage5Title">Menutup perjalanan dengan medali perak</h3>
+            <p data-i18n="stage5Copy">Pada kesempatan terakhir saya di OSN, saya berhasil meraih medali perak. Perjalanan panjang ini mengajarkan saya untuk memberikan yang terbaik dan menghargai setiap tahap yang dilalui.</p>
+          </div>
+        </article>
+      </div>
     </section>
 
-    <!-- Competitive Programming Profiles Section -->
-    <section id="cp" class="max-w-5xl mx-auto px-6 py-16 border-t border-[#E8DFD1] space-y-8">
-        <h2 class="text-3xl font-extrabold text-[#211B16]">⚡ Competitive Programming Profiles</h2>
-        <p class="text-[#5B4A40] text-sm">Let's solve some problems together! You can check out my handles and contest histories here:</p>
-        <div class="grid grid-cols-1 sm:grid-cols-3 gap-6">
-            <a href="https://codeforces.com/profile/leo_pu" target="_blank" class="fun-card bg-[#FFFDF9] border border-[#E8DFD1] hover:border-[#800020] p-6 rounded-3xl space-y-3 shadow-sm group">
-                <div class="text-blue-600 font-bold text-xl flex items-center justify-between">
-                    <span><i class="fa-solid fa-code mr-2"></i>Codeforces</span>
-                    <i class="fa-solid fa-arrow-up-right-from-square text-xs opacity-0 group-hover:opacity-100 transition"></i>
-                </div>
-                <p class="text-[#5B4A40] font-mono text-sm font-bold">handle: leo_pu</p>
-            </a>
-            <a href="https://tlx.tokopedia.com/@leo_pu" target="_blank" class="fun-card bg-[#FFFDF9] border border-[#E8DFD1] hover:border-[#800020] p-6 rounded-3xl space-y-3 shadow-sm group">
-                <div class="text-emerald-600 font-bold text-xl flex items-center justify-between">
-                    <span><i class="fa-solid fa-terminal mr-2"></i>TLX</span>
-                    <i class="fa-solid fa-arrow-up-right-from-square text-xs opacity-0 group-hover:opacity-100 transition"></i>
-                </div>
-                <p class="text-[#5B4A40] font-mono text-sm font-bold">handle: leo_pu</p>
-            </a>
-            <a href="https://atcoder.jp/users/leo_pu" target="_blank" class="fun-card bg-[#FFFDF9] border border-[#E8DFD1] hover:border-[#800020] p-6 rounded-3xl space-y-3 shadow-sm group">
-                <div class="text-amber-600 font-bold text-xl flex items-center justify-between">
-                    <span><i class="fa-solid fa-chart-line mr-2"></i>AtCoder</span>
-                    <i class="fa-solid fa-arrow-up-right-from-square text-xs opacity-0 group-hover:opacity-100 transition"></i>
-                </div>
-                <p class="text-[#5B4A40] font-mono text-sm font-bold">handle: leo_pu</p>
-            </a>
-        </div>
+    <section class="container" id="achievements">
+      <div class="section-heading">
+        <div class="eyebrow" data-i18n="achieveEyebrow">Pencapaian</div>
+        <h2 data-i18n="achieveTitle">Momen yang berarti.</h2>
+        <p data-i18n="achieveLead">Beberapa pencapaian yang menjadi bagian penting dari perjalanan akademik saya.</p>
+      </div>
+      <div class="achievement-grid">
+        <article class="achievement">
+          <div class="medal" aria-hidden="true">🥉</div>
+          <div class="year" data-i18n="achievement1Tag">SMP</div>
+          <h3 data-i18n="achievement1Title">Medali Perunggu</h3>
+          <p data-i18n="achievement1Copy">Olimpiade Matematika — pengalaman yang menguatkan dasar berpikir logis dan ketekunan saya.</p>
+        </article>
+        <article class="achievement">
+          <div class="medal" aria-hidden="true">🏅</div>
+          <div class="year" data-i18n="achievement2Tag">SMA · Tahun kedua</div>
+          <h3 data-i18n="achievement2Title">Medali Perunggu OSN</h3>
+          <p data-i18n="achievement2Copy">OSN Informatika — hasil dari latihan, evaluasi, dan kemauan untuk terus memperbaiki diri.</p>
+        </article>
+        <article class="achievement">
+          <div class="medal" aria-hidden="true">🥈</div>
+          <div class="year" data-i18n="achievement3Tag">SMA · Tahun terakhir</div>
+          <h3 data-i18n="achievement3Title">Medali Perak OSN</h3>
+          <p data-i18n="achievement3Copy">OSN Informatika — pencapaian yang menutup perjalanan kompetisi sekolah dengan penuh rasa syukur.</p>
+        </article>
+      </div>
+      <p class="note" data-i18n="achievementNote">Catatan: tambahkan tahun, nama resmi kompetisi, dan dokumentasi medali jika ingin membuat bagian ini lebih lengkap.</p>
     </section>
 
-    <!-- CP Solutions / Favorite Problems Section (Contoh dengan Link Soal CF) -->
-    <section id="solutions" class="max-w-5xl mx-auto px-6 py-16 border-t border-[#E8DFD1] space-y-8">
-        <h2 class="text-3xl font-extrabold text-[#211B16]">🧩 Featured CP Solutions</h2>
-        <p class="text-[#5B4A40] text-sm">Beberapa contoh soal competitive programming pilihan beserta tautan langsung ke soalnya:</p>
-        
-        <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
-            <!-- Contoh Soal 1 -->
-            <div class="fun-card bg-[#FFFDF9] border border-[#E8DFD1] p-6 rounded-3xl space-y-3 shadow-sm flex flex-col justify-between">
-                <div class="space-y-2">
-                    <span class="text-xs font-bold px-2.5 py-1 bg-blue-500/15 text-blue-800 rounded-full">Codeforces</span>
-                    <h3 class="text-lg font-bold text-[#800020]">Problem 2000 A: Codeforces Checking / Similar</h3>
-                    <p class="text-[#5B4A40] text-sm">Contoh pembahasan dan implementasi kode untuk menyelesaikan persoalan pada divisi/latihan terkait.</p>
-                </div>
-                <div class="pt-2">
-                    <a href="https://codeforces.com/problemset/problem/2000/A" target="_blank" class="text-sm font-bold text-[#800020] hover:underline flex items-center gap-1">
-                        <i class="fa-solid fa-link text-xs"></i> Lihat Soal di Codeforces &rarr;
-                    </a>
-                </div>
-            </div>
-
-            <!-- Anda bisa duplikat blok di atas untuk soal-soal lainnya -->
+    <section class="container" id="codes">
+      <div class="code-intro">
+        <div class="section-heading">
+          <div class="eyebrow" data-i18n="codesEyebrow">Competitive programming</div>
+          <h2 data-i18n="codesTitle">Kode, solusi, dan proses berpikir.</h2>
+          <p data-i18n="codesLead">Kumpulan solusi pemrograman kompetitif saya dari berbagai platform. Arsip kode akan ditambahkan secara bertahap.</p>
         </div>
+        <aside class="code-tip">
+          <strong data-i18n="codesTipTitle">Code archive</strong>
+          <span data-i18n="codesTipCopy">Bagian ini disiapkan sebagai tempat untuk mengakses source code, catatan pendekatan, dan topik algoritma.</span>
+        </aside>
+      </div>
+      <div class="solution-tools">
+        <input id="solutionSearch" class="solution-search" type="search" placeholder="Cari nama soal, topik, atau kode..." aria-label="Search solutions" />
+        <div class="solution-filters" role="group" aria-label="Filter by platform">
+          <button class="filter-button" type="button" data-platform="all" aria-pressed="true" data-label-id="Semua" data-label-en="All">Semua</button>
+          <button class="filter-button" type="button" data-platform="Codeforces" aria-pressed="false">Codeforces</button>
+          <button class="filter-button" type="button" data-platform="AtCoder" aria-pressed="false">AtCoder</button>
+          <button class="filter-button" type="button" data-platform="TLX" aria-pressed="false">TLX</button>
+        </div>
+      </div>
+      <p id="solutionStatus" class="note" role="status" aria-live="polite">Menghubungkan ke GitHub...</p>
+      <div id="solutionList" class="solution-list" aria-live="polite"></div>
+      <div id="codePreview" class="code-preview" hidden>
+        <div class="code-preview-head">
+          <strong id="previewTitle">Source code</strong>
+          <div class="code-preview-actions">
+            <button class="button secondary" id="copyCodeButton" type="button">Salin kode</button>
+            <button class="button secondary" id="closePreviewButton" type="button">Tutup</button>
+          </div>
+        </div>
+        <pre><code id="previewCode"></code></pre>
+      </div>
+      <p class="note" data-i18n="codesNote">Daftar solusi dan source code dimuat otomatis dari folder Codeforces, AtCoder, dan TLX di repository GitHub publik.</p>
     </section>
 
-    <!-- Projects Section -->
-    <section id="projects" class="max-w-5xl mx-auto px-6 py-16 border-t border-[#E8DFD1] space-y-8">
-        <h2 class="text-3xl font-extrabold text-[#211B16]">💻 Featured Projects</h2>
-        <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
-            <div class="fun-card bg-[#FFFDF9] border border-[#E8DFD1] p-6 rounded-3xl space-y-4 flex flex-col justify-between shadow-sm">
-                <div class="space-y-2">
-                    <h3 class="font-bold text-xl text-[#800020]">Coulomb's Law Masterclass</h3>
-                    <p class="text-[#5B4A40] text-sm leading-relaxed">An interactive physics learning resource covering electrostatic forces, 2D simulators, and exam practice.</p>
-                </div>
-                <a href="https://lleopu.github.io/electrostatic-forces/" target="_blank" class="text-sm font-bold text-[#800020] hover:underline flex items-center gap-1">Visit Live Site &rarr;</a>
-            </div>
-        </div>
+
+    <section class="container" id="interests">
+      <div class="section-heading">
+        <div class="eyebrow" data-i18n="interestsEyebrow">Minat & hal yang dipelajari</div>
+        <h2 data-i18n="interestsTitle">Hal yang membuat saya penasaran.</h2>
+        <p data-i18n="interestsLead">Saya ingin terus memperluas kemampuan dan menerapkan apa yang saya pelajari ke dalam karya nyata.</p>
+      </div>
+      <div class="skills">
+        <span class="chip">C++</span><span class="chip" data-i18n="skillAlgorithms">Algoritma & struktur data</span><span class="chip" data-i18n="skillProblem">Problem solving</span><span class="chip">Competitive Programming</span><span class="chip">HTML & CSS</span><span class="chip" data-i18n="skillLearning">Pembelajaran berkelanjutan</span><span class="chip">Futsal</span>
+      </div>
     </section>
 
-    <!-- Footer -->
-    <footer class="border-t border-[#E8DFD1] bg-[#F3ECE1] py-8 text-center text-sm text-[#5B4A40]">
-        <p>&copy; 2026 Leonardus Lintang Panji Utama. Built with fun & GitHub Pages.</p>
-    </footer>
+    <section class="container">
+      <div class="closing">
+        <div>
+          <h2 data-i18n="closingTitle">Perjalanan saya masih berlanjut.</h2>
+          <p data-i18n="closingCopy">Saya ingin terus belajar, membangun sesuatu yang bermanfaat, dan menjadi pribadi yang lebih baik dari hari ke hari.</p>
+        </div>
+        <a class="button" href="#home" data-i18n="backTop">Kembali ke atas ↑</a>
+      </div>
+    </section>
+  </main>
 
+  <footer>
+    <div class="container footer-inner">
+      <span>© <span id="year"></span> Leonardus Lintang Panji Utama</span>
+      <span data-i18n="footerText">Dibuat dengan rasa ingin tahu dan semangat untuk terus bertumbuh.</span>
+    </div>
+  </footer>
+
+  <script>
+    const translations = {
+      id: {
+        navAbout:'Tentang', navJourney:'Perjalanan', navAchievements:'Prestasi', navCodes:'Kode', navInterests:'Minat',
+        heroEyebrow:'Pelajar · Programmer · Pembelajar', heroTitle:'Halo, saya<br><span>Leonardus Lintang Panji Utama.</span>',
+        heroCopy:'Saya adalah pelajar SMA yang tertarik pada Informatika, pemrograman, dan pemecahan masalah. Saya senang terus belajar, mencoba tantangan baru, dan mengembangkan diri melalui setiap proses.',
+        heroButton1:'Lihat Perjalanan <span aria-hidden="true">↘</span>', heroButton2:'Kenali Saya', fact1:'Perjalanan Informatika', fact2:'Bahasa yang dipelajari', fact3:'Semangat belajar',
+        portraitSubtitle:'Student · Informatics Enthusiast', photoNote:'Tip: ganti area ini dengan foto profesionalmu.',
+        aboutEyebrow:'Sedikit tentang saya', aboutTitle:'Selalu ingin bertumbuh.', aboutLead:'Saya percaya perkembangan besar berawal dari rasa ingin tahu, konsistensi, dan keberanian untuk mencoba.',
+        profileTitle:'Profil singkat', profileCopy:'Saya menaruh minat pada teknologi, terutama pemrograman dan algoritma. Saya menikmati proses mengurai masalah yang rumit menjadi langkah-langkah kecil yang bisa diselesaikan.',
+        detailSchool:'Sekolah', detailFocus:'Fokus', detailFocusValue:'Informatika & problem solving', detailHobby:'Hobi', detailHobbyValue:'Coding, futsal',
+        beliefTitle:'Hal yang saya yakini', beliefCopy:'Bagi saya, prestasi bukan hanya tentang hasil akhir, tetapi juga tentang proses, disiplin, dan pelajaran yang didapat saat menghadapi tantangan.', quoteCaption:'Prinsip hidup — berusaha sebaik mungkin dan percaya kepada Tuhan.',
+        journeyEyebrow:'Perjalanan saya', journeyTitle:'Langkah demi langkah.', journeyLead:'Setiap tahap memberi pelajaran baru. Inilah ringkasan perjalanan belajar dan pengalaman kompetisi saya.',
+        stage1Meta:'Sekolah dasar', stage1Title:'Awal perjalanan kompetisi', stage1Copy:'Saya mulai mengenal kompetisi akademik sejak SD. Pengalaman awal mengajarkan saya untuk tetap mencoba, bahkan ketika hasilnya belum sesuai harapan.',
+        stage2Meta:'Sekolah menengah pertama', stage2Title:'Mengenal olimpiade matematika', stage2Copy:'Saat SMP, saya mengikuti olimpiade matematika dan berhasil meraih medali perunggu. Pengalaman ini membuat saya semakin menghargai proses latihan dan ketekunan.',
+        stage3Meta:'SMA · Tahun pertama', stage3Title:'Beralih ke Informatika', stage3Copy:'Saya memilih bidang Informatika dan berhasil menjadi finalis OSN pada tahun pertama SMA. Saya mulai lebih serius mendalami algoritma, logika, dan pemrograman.',
+        stage4Meta:'SMA · Tahun kedua', stage4Title:'Belajar dari tantangan', stage4Copy:'Saya kembali berkompetisi dan meraih medali perunggu OSN Informatika. Hasil ini menjadi pengingat bahwa kemajuan dibangun melalui evaluasi dan latihan yang konsisten.',
+        stage5Meta:'SMA · Tahun terakhir', stage5Title:'Menutup perjalanan dengan medali perak', stage5Copy:'Pada kesempatan terakhir saya di OSN, saya berhasil meraih medali perak. Perjalanan panjang ini mengajarkan saya untuk memberikan yang terbaik dan menghargai setiap tahap yang dilalui.',
+        achieveEyebrow:'Pencapaian', achieveTitle:'Momen yang berarti.', achieveLead:'Beberapa pencapaian yang menjadi bagian penting dari perjalanan akademik saya.',
+        achievement1Tag:'SMP', achievement1Title:'Medali Perunggu', achievement1Copy:'Olimpiade Matematika — pengalaman yang menguatkan dasar berpikir logis dan ketekunan saya.',
+        achievement2Tag:'SMA · Tahun kedua', achievement2Title:'Medali Perunggu OSN', achievement2Copy:'OSN Informatika — hasil dari latihan, evaluasi, dan kemauan untuk terus memperbaiki diri.',
+        achievement3Tag:'SMA · Tahun terakhir', achievement3Title:'Medali Perak OSN', achievement3Copy:'OSN Informatika — pencapaian yang menutup perjalanan kompetisi sekolah dengan penuh rasa syukur.',
+        achievementNote:'Catatan: tambahkan tahun, nama resmi kompetisi, dan dokumentasi medali jika ingin membuat bagian ini lebih lengkap.',
+        codesEyebrow:'Competitive programming', codesTitle:'Kode, solusi, dan proses berpikir.', codesLead:'Kumpulan solusi pemrograman kompetitif saya dari berbagai platform. Arsip kode akan ditambahkan secara bertahap.', codesTipTitle:'Arsip kode', codesTipCopy:'Bagian ini disiapkan sebagai tempat untuk mengakses source code, catatan pendekatan, dan topik algoritma.', codesComing:'Segera ditambahkan', cfCopy:'Arsip solusi contest dan latihan, dengan nama soal serta tautan ke source code.', atCopy:'Solusi berdasarkan contest dan kode soal agar mudah ditelusuri kembali.', tlxCopy:'Solusi latihan, materi algoritma, dan arsip soal untuk persiapan kompetisi Informatika.', platformVisit:'Kunjungi platform ↗', codesNote:'Daftar solusi dan source code dimuat otomatis dari folder Codeforces, AtCoder, dan TLX di repository GitHub publik.',
+        searchPlaceholder:'Cari nama soal, topik, atau kode...', searchAria:'Cari solusi', filterAria:'Filter berdasarkan platform', viewCode:'Lihat kode', openGithub:'Buka GitHub', templateLabel:'Template contoh', noGithub:'Tambahkan URL GitHub di data JavaScript', noResults:'Tidak ada solusi yang cocok. Coba kata kunci atau filter lain.', loadingSolutions:'Mengambil solusi dari GitHub...', githubSetup:'Atur username GitHub pada konfigurasi JavaScript terlebih dahulu.', githubEmpty:'Belum ada file kode .cpp/.cc/.cxx di folder Codeforces, AtCoder, atau TLX.', githubError:'Gagal mengambil data GitHub. Periksa username, repository, koneksi internet, dan pastikan repository bersifat Public.', copied:'Kode berhasil disalin.', copyCode:'Salin kode', closePreview:'Tutup', previewLabel:'Source code',
+        interestsEyebrow:'Minat & hal yang dipelajari', interestsTitle:'Hal yang membuat saya penasaran.', interestsLead:'Saya ingin terus memperluas kemampuan dan menerapkan apa yang saya pelajari ke dalam karya nyata.',
+        skillAlgorithms:'Algoritma & struktur data', skillProblem:'Problem solving', skillLearning:'Pembelajaran berkelanjutan',
+        closingTitle:'Perjalanan saya masih berlanjut.', closingCopy:'Saya ingin terus belajar, membangun sesuatu yang bermanfaat, dan menjadi pribadi yang lebih baik dari hari ke hari.', backTop:'Kembali ke atas ↑', footerText:'Dibuat dengan rasa ingin tahu dan semangat untuk terus bertumbuh.'
+      },
+      en: {
+        navAbout:'About', navJourney:'Journey', navAchievements:'Achievements', navCodes:'Codes', navInterests:'Interests',
+        heroEyebrow:'Student · Programmer · Lifelong Learner', heroTitle:'Hello, I’m<br><span>Leonardus Lintang Panji Utama.</span>',
+        heroCopy:'I am a high school student interested in computer science, programming, and problem-solving. I enjoy learning, taking on new challenges, and growing through every experience.',
+        heroButton1:'Explore My Journey <span aria-hidden="true">↘</span>', heroButton2:'About Me', fact1:'Informatics journey', fact2:'Language I study', fact3:'Love of learning',
+        portraitSubtitle:'Student · Informatics Enthusiast', photoNote:'Tip: replace this area with your professional photo.',
+        aboutEyebrow:'A little about me', aboutTitle:'Always looking to grow.', aboutLead:'I believe meaningful growth begins with curiosity, consistency, and the courage to try.',
+        profileTitle:'A brief profile', profileCopy:'I am interested in technology, especially programming and algorithms. I enjoy breaking complex problems into smaller, solvable steps.',
+        detailSchool:'School', detailFocus:'Focus', detailFocusValue:'Computer science & problem-solving', detailHobby:'Hobbies', detailHobbyValue:'Coding, futsal',
+        beliefTitle:'What I believe', beliefCopy:'To me, achievement is not only about the final result. It is also about the process, discipline, and lessons learned while facing challenges.', quoteCaption:'Life principle — give my best and trust God with the rest.',
+        journeyEyebrow:'My journey', journeyTitle:'One step at a time.', journeyLead:'Every stage has taught me something new. Here is a brief overview of my learning and competition journey.',
+        stage1Meta:'Elementary school', stage1Title:'The beginning of competition', stage1Copy:'I started exploring academic competitions in elementary school. Those early experiences taught me to keep trying, even when the outcome was not what I had hoped for.',
+        stage2Meta:'Middle school', stage2Title:'Discovering mathematics olympiads', stage2Copy:'In middle school, I competed in mathematics olympiads and earned a bronze medal. The experience taught me to value practice and perseverance.',
+        stage3Meta:'High school · Year one', stage3Title:'Moving into Informatics', stage3Copy:'I chose Informatics and became an OSN finalist in my first year of high school. I began studying algorithms, logic, and programming more seriously.',
+        stage4Meta:'High school · Year two', stage4Title:'Learning through challenges', stage4Copy:'I competed again and earned a bronze medal in OSN Informatics. It reminded me that progress comes from reflection and consistent practice.',
+        stage5Meta:'High school · Final year', stage5Title:'Ending the journey with silver', stage5Copy:'In my final opportunity to compete in OSN, I earned a silver medal. This long journey taught me to give my best and appreciate every step along the way.',
+        achieveEyebrow:'Achievements', achieveTitle:'Milestones that matter.', achieveLead:'A few achievements that have become meaningful parts of my academic journey.',
+        achievement1Tag:'Middle school', achievement1Title:'Bronze Medal', achievement1Copy:'Mathematics Olympiad — an experience that strengthened my logical thinking and perseverance.',
+        achievement2Tag:'High school · Year two', achievement2Title:'OSN Bronze Medal', achievement2Copy:'OSN Informatics — the result of practice, reflection, and a willingness to keep improving.',
+        achievement3Tag:'High school · Final year', achievement3Title:'OSN Silver Medal', achievement3Copy:'OSN Informatics — a milestone that brought my school competition journey to a grateful close.',
+        achievementNote:'Note: add the year, official competition name, and medal photos to make this section more complete.',
+        codesEyebrow:'Competitive programming', codesTitle:'Code, solutions, and problem-solving.', codesLead:'A collection of my competitive programming solutions from different platforms. The code archive will be added gradually.', codesTipTitle:'Code archive', codesTipCopy:'This section is designed to host source code, approach notes, and algorithm topics.', codesComing:'Coming soon', cfCopy:'Contest and practice solutions, organized with problem names and source code links.', atCopy:'Solutions organized by contest and problem code for easy reference.', tlxCopy:'Practice solutions, algorithm materials, and problem archives for Informatics competitions.', platformVisit:'Visit platform ↗', codesNote:'Solution listings and source code are loaded automatically from the Codeforces, AtCoder, and TLX folders in your public GitHub repository.',
+        searchPlaceholder:'Search problem, topic, or code...', searchAria:'Search solutions', filterAria:'Filter by platform', viewCode:'View code', openGithub:'Open GitHub', templateLabel:'Example template', noGithub:'Add a GitHub URL in the JavaScript data', noResults:'No matching solutions. Try another keyword or filter.', loadingSolutions:'Loading solutions from GitHub...', githubSetup:'Set your GitHub username in the JavaScript configuration first.', githubEmpty:'No .cpp/.cc/.cxx source files found in the Codeforces, AtCoder, or TLX folders.', githubError:'Could not load GitHub data. Check the username, repository, internet connection, and make sure the repository is Public.', copied:'Code copied.', copyCode:'Copy code', closePreview:'Close', previewLabel:'Source code',
+        interestsEyebrow:'Interests & learning', interestsTitle:'Things that spark my curiosity.', interestsLead:'I want to keep expanding my skills and turn what I learn into meaningful projects.',
+        skillAlgorithms:'Algorithms & data structures', skillProblem:'Problem-solving', skillLearning:'Continuous learning',
+        closingTitle:'My journey is still unfolding.', closingCopy:'I hope to keep learning, build things that help others, and become a better version of myself each day.', backTop:'Back to top ↑', footerText:'Made with curiosity and a commitment to keep growing.'
+      }
+    };
+
+    const root = document.documentElement;
+    const themeToggle = document.getElementById('themeToggle');
+    const languageToggle = document.getElementById('languageToggle');
+    let language = 'id';
+
+    // GitHub configuration: replace YOUR_GITHUB_USERNAME with your GitHub username.
+    // Repository must be Public. New C++ files inside Codeforces/, AtCoder/, and TLX/ are detected automatically.
+    const GITHUB_OWNER = 'lleopu';
+    const GITHUB_REPO = 'competitive-programming';
+    const SUPPORTED_FOLDERS = ['Codeforces', 'AtCoder', 'TLX'];
+    let solutions = [];
+    let activePlatform = 'all';
+    let activeSolution = null;
+    let loadGeneration = 0;
+
+    const solutionList = document.getElementById('solutionList');
+    const solutionSearch = document.getElementById('solutionSearch');
+    const codePreview = document.getElementById('codePreview');
+    const previewTitle = document.getElementById('previewTitle');
+    const previewCode = document.getElementById('previewCode');
+    const solutionStatus = document.getElementById('solutionStatus');
+
+    function setSolutionStatus(message) {
+      if (solutionStatus) solutionStatus.textContent = message;
+    }
+
+    function titleFromPath(path) {
+      const file = path.split('/').pop().replace(/\.(cpp|cc|cxx|h|hpp)$/i, '');
+      return file.replace(/[_-]+/g, ' ').replace(/\s+/g, ' ').trim() || file;
+    }
+
+    function platformForPath(path) {
+      return SUPPORTED_FOLDERS.find(folder => path.startsWith(folder + '/')) || null;
+    }
+
+    async function loadSolutionsFromGitHub() {
+      const generation = ++loadGeneration;
+      const t = translations[language];
+      if (!GITHUB_OWNER || GITHUB_OWNER === 'YOUR_GITHUB_USERNAME') {
+        setSolutionStatus(t.githubSetup);
+        solutionList.innerHTML = '';
+        return;
+      }
+      setSolutionStatus(t.loadingSolutions);
+      solutionList.innerHTML = '';
+      try {
+        const apiBase = `https://api.github.com/repos/${encodeURIComponent(GITHUB_OWNER)}/${encodeURIComponent(GITHUB_REPO)}`;
+        const repoResponse = await fetch(apiBase, { headers: { Accept: 'application/vnd.github+json' } });
+        if (!repoResponse.ok) throw new Error('repo');
+        const repoInfo = await repoResponse.json();
+        const branch = repoInfo.default_branch || 'main';
+        const treeResponse = await fetch(`${apiBase}/git/trees/${encodeURIComponent(branch)}?recursive=1`, { headers: { Accept: 'application/vnd.github+json' } });
+        if (!treeResponse.ok) throw new Error('tree');
+        const treeData = await treeResponse.json();
+        const sourceFiles = (treeData.tree || []).filter(node => node.type === 'blob' &&
+          platformForPath(node.path) && /\.(cpp|cc|cxx)$/i.test(node.path));
+
+        const loaded = await Promise.all(sourceFiles.map(async node => {
+          const platform = platformForPath(node.path);
+          const rawUrl = `https://raw.githubusercontent.com/${encodeURIComponent(GITHUB_OWNER)}/${encodeURIComponent(GITHUB_REPO)}/${encodeURIComponent(branch)}/${node.path.split('/').map(encodeURIComponent).join('/')}`;
+          const response = await fetch(rawUrl);
+          if (!response.ok) return null;
+          const code = await response.text();
+          const relativeParts = node.path.split('/').slice(1, -1);
+          const topic = relativeParts.length ? relativeParts.join(' / ') : 'C++';
+          const title = titleFromPath(node.path);
+          const githubUrl = `https://github.com/${GITHUB_OWNER}/${GITHUB_REPO}/blob/${encodeURIComponent(branch)}/${node.path.split('/').map(encodeURIComponent).join('/')}`;
+          return {
+            id: node.path,
+            platform,
+            title,
+            titleId: title,
+            problem: node.path,
+            problemId: node.path,
+            topic,
+            topicId: topic,
+            description: 'Source code loaded from GitHub.',
+            descriptionId: 'Source code dimuat dari GitHub.',
+            githubUrl,
+            code
+          };
+        }));
+
+        if (generation !== loadGeneration) return;
+        solutions = loaded.filter(Boolean).sort((a, b) => {
+          const platformOrder = SUPPORTED_FOLDERS.indexOf(a.platform) - SUPPORTED_FOLDERS.indexOf(b.platform);
+          return platformOrder || a.problem.localeCompare(b.problem);
+        });
+        if (treeData.truncated) setSolutionStatus(language === 'id' ? 'GitHub mengembalikan daftar file yang terpotong karena repository sangat besar.' : 'GitHub returned a truncated file list because the repository is very large.');
+        else if (!solutions.length) setSolutionStatus(t.githubEmpty);
+        else setSolutionStatus(language === 'id' ? `${solutions.length} solusi dimuat dari GitHub.` : `${solutions.length} solution(s) loaded from GitHub.`);
+        renderSolutions();
+      } catch (error) {
+        if (generation !== loadGeneration) return;
+        solutions = [];
+        setSolutionStatus(translations[language].githubError);
+        renderSolutions();
+      }
+    }
+
+    function renderSolutions() {
+      if (!solutionList) return;
+      const t = translations[language];
+      solutionSearch.placeholder = t.searchPlaceholder;
+      solutionSearch.setAttribute('aria-label', t.searchAria);
+      document.querySelector('.solution-filters').setAttribute('aria-label', t.filterAria);
+      document.querySelectorAll('.filter-button[data-label-id]').forEach(btn => {
+        btn.textContent = language === 'id' ? btn.dataset.labelId : btn.dataset.labelEn;
+      });
+      const query = solutionSearch.value.trim().toLowerCase();
+      const filtered = solutions.filter(item => {
+        const matchesPlatform = activePlatform === 'all' || item.platform === activePlatform;
+        const haystack = [item.title, item.titleId, item.problem, item.problemId, item.topic, item.topicId, item.description, item.descriptionId, item.platform].join(' ').toLowerCase();
+        return matchesPlatform && haystack.includes(query);
+      });
+      solutionList.innerHTML = '';
+      if (!filtered.length) {
+        if (solutions.length) { const empty = document.createElement('div'); empty.className = 'solution-empty'; empty.textContent = t.noResults; solutionList.appendChild(empty); }
+        return;
+      }
+      filtered.forEach(item => {
+        const card = document.createElement('article'); card.className = 'solution-card';
+        const meta = document.createElement('div'); meta.className = 'solution-meta';
+        [item.platform, (language === 'id' ? item.topicId : item.topic) || (language === 'id' ? 'Topik belum diisi' : 'Topic not set')].forEach(label => {
+          const tag = document.createElement('span'); tag.className = 'solution-tag'; tag.textContent = label; meta.appendChild(tag);
+        });
+        const title = document.createElement('h3'); title.textContent = language === 'id' ? (item.titleId || item.title) : item.title;
+        const problem = document.createElement('p'); problem.textContent = (language === 'id' ? (item.problemId || item.problem) : item.problem) + ' · ' + (language === 'id' ? (item.descriptionId || item.description) : item.description);
+        const actions = document.createElement('div'); actions.className = 'solution-actions';
+        const view = document.createElement('button'); view.type = 'button'; view.className = 'button primary'; view.textContent = t.viewCode;
+        view.addEventListener('click', () => showCode(item)); actions.appendChild(view);
+        const github = document.createElement('a'); github.className = 'button secondary'; github.textContent = t.openGithub + ' ↗';
+        if (item.githubUrl && /^https:\/\/github\.com\//i.test(item.githubUrl)) { github.href = item.githubUrl; github.target = '_blank'; github.rel = 'noopener noreferrer'; }
+        else { github.href = '#'; github.setAttribute('aria-disabled', 'true'); github.title = t.noGithub; github.addEventListener('click', e => e.preventDefault()); github.style.opacity = '.5'; }
+        actions.appendChild(github);
+        card.append(meta, title, problem, actions); solutionList.appendChild(card);
+      });
+      if (activeSolution) updatePreviewLabels();
+    }
+
+    function showCode(item) {
+      activeSolution = item;
+      codePreview.hidden = false;
+      previewTitle.textContent = item.platform + ' / ' + item.title;
+      previewCode.textContent = item.code;
+      updatePreviewLabels();
+      codePreview.scrollIntoView({behavior:'smooth', block:'nearest'});
+    }
+    function updatePreviewLabels() {
+      const t = translations[language];
+      document.getElementById('copyCodeButton').textContent = t.copyCode;
+      document.getElementById('closePreviewButton').textContent = t.closePreview;
+    }
+    document.querySelectorAll('.filter-button').forEach(btn => btn.addEventListener('click', () => {
+      activePlatform = btn.dataset.platform;
+      document.querySelectorAll('.filter-button').forEach(b => b.setAttribute('aria-pressed', String(b === btn)));
+      renderSolutions();
+    }));
+    solutionSearch.addEventListener('input', renderSolutions);
+    document.getElementById('closePreviewButton').addEventListener('click', () => { codePreview.hidden = true; activeSolution = null; });
+    document.getElementById('copyCodeButton').addEventListener('click', async () => {
+      try { await navigator.clipboard.writeText(previewCode.textContent); }
+      catch (e) {
+        const range = document.createRange(); range.selectNodeContents(previewCode);
+        const selection = window.getSelection(); selection.removeAllRanges(); selection.addRange(range);
+      }
+      const button = document.getElementById('copyCodeButton');
+      button.textContent = translations[language].copied;
+      setTimeout(() => { if (button) button.textContent = translations[language].copyCode; }, 1600);
+    });
+
+    function setTheme(theme) {
+      root.dataset.theme = theme;
+      themeToggle.textContent = theme === 'dark' ? '☀' : '☾';
+      themeToggle.setAttribute('aria-label', theme === 'dark' ? 'Switch to light mode' : 'Switch to dark mode');
+      document.querySelector('meta[name="theme-color"]').setAttribute('content', theme === 'dark' ? '#0F172A' : '#F8FAFC');
+    }
+
+    themeToggle.addEventListener('click', () => {
+      setTheme(root.dataset.theme === 'dark' ? 'light' : 'dark');
+    });
+
+    function setLanguage(nextLanguage) {
+      language = nextLanguage;
+      document.documentElement.lang = language;
+      document.querySelectorAll('[data-i18n]').forEach((element) => {
+        const key = element.dataset.i18n;
+        if (translations[language][key] !== undefined) element.textContent = translations[language][key];
+      });
+      document.querySelectorAll('[data-i18n-html]').forEach((element) => {
+        const key = element.dataset.i18nHtml;
+        if (translations[language][key] !== undefined) element.innerHTML = translations[language][key];
+      });
+      languageToggle.textContent = language === 'id' ? 'EN' : 'ID';
+      languageToggle.setAttribute('aria-label', language === 'id' ? 'Switch to English' : 'Ganti ke Bahasa Indonesia');
+      document.title = language === 'id' ? 'Leonardus Lintang Panji Utama — Portofolio Pribadi' : 'Leonardus Lintang Panji Utama — Personal Portfolio';
+      renderSolutions();
+    }
+
+    languageToggle.addEventListener('click', () => setLanguage(language === 'id' ? 'en' : 'id'));
+    document.getElementById('year').textContent = new Date().getFullYear();
+    setTheme('light');
+    renderSolutions();
+    loadSolutionsFromGitHub();
+  </script>
 </body>
 </html>
